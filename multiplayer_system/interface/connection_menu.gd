@@ -16,7 +16,7 @@ class_name Connection_Menu extends Control
 
 func _ready() -> void:
 	_set_up_connections()
-	MultiplayerInterface.player_info_updated.connect(_on_player_info_updated)
+	
 	_update_player_username()
 	_update_player_avatar()
 	
@@ -25,6 +25,7 @@ func _set_up_connections() -> void:
 	join_button.pressed.connect(_on_join_button_pressed)
 	refresh_lobby_list_button.pressed.connect(_on_refresh_lobby_list_button_pressed)
 	
+	MultiplayerInterface.player_info_updated.connect(_on_player_info_updated)
 	MultiplayerInterface.lobby_list_updated.connect(_on_lobby_list_updated)
 
 func _on_player_info_updated() -> void:

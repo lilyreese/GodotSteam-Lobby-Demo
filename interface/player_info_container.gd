@@ -4,3 +4,5 @@ class_name Player_Info_Container extends HBoxContainer
 @export var avatar_texture:TextureRect
 @export var name_label:Label
 
+var steam_id:int = 0
+
