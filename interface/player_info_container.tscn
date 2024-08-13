@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdukfn2ljtjel"]
+
+[ext_resource type="Texture2D" uid="uid://b8cy82tsjkt4h" path="res://icon.svg" id="1_jbdt4"]
+[ext_resource type="Script" path="res://interface/player_info_container.gd" id="1_nlrh4"]
+
+[node name="PlayerInfoContainer" type="HBoxContainer" node_paths=PackedStringArray("avatar_texture", "name_label")]
+script = ExtResource("1_nlrh4")
+avatar_texture = NodePath("TextureRect")
+name_label = NodePath("NameLabel")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_jbdt4")
+expand_mode = 2
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Test Name"
+horizontal_alignment = 1

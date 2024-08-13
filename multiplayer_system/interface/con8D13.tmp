@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://blcexif3mw0ff"]
+
+[ext_resource type="Theme" uid="uid://drqlnkqism7je" path="res://interface/themes/menu_theme.tres" id="1_80oyo"]
+[ext_resource type="Script" path="res://multiplayer_system/interface/connection_menu.gd" id="1_fnvxh"]
+[ext_resource type="Texture2D" uid="uid://b8cy82tsjkt4h" path="res://icon.svg" id="2_q6tiq"]
+
+[node name="ConnectionMenu" type="Control" node_paths=PackedStringArray("avatar_texture", "name_label", "host_button", "join_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_80oyo")
+script = ExtResource("1_fnvxh")
+avatar_texture = NodePath("PlayerInfoContainer/TextureRect")
+name_label = NodePath("PlayerInfoContainer/NameLabel")
+host_button = NodePath("VBoxContainer/HostContainer/HostButton")
+join_button = NodePath("VBoxContainer/JoinContainer/JoinButton")
+
+[node name="PlayerInfoContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.05
+anchor_right = 0.1
+anchor_bottom = 0.05
+offset_bottom = 57.52
+
+[node name="TextureRect" type="TextureRect" parent="PlayerInfoContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_q6tiq")
+expand_mode = 2
+
+[node name="NameLabel" type="Label" parent="PlayerInfoContainer"]
+layout_mode = 2
+text = "Test Name"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.2
+anchor_right = 0.2
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HostContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LobbyNameLineEdit" type="LineEdit" parent="VBoxContainer/HostContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "Room Name"
+alignment = 1
+expand_to_text_length = true
+
+[node name="HostButton" type="Button" parent="VBoxContainer/HostContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Host
+"
+
+[node name="JoinContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/JoinContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "Room ID"
+alignment = 1
+expand_to_text_length = true
+
+[node name="JoinButton" type="Button" parent="VBoxContainer/JoinContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Join
+"

@@ -1,0 +1,108 @@
+[gd_scene load_steps=4 format=3 uid="uid://blcexif3mw0ff"]
+
+[ext_resource type="Theme" uid="uid://drqlnkqism7je" path="res://interface/themes/menu_theme.tres" id="1_80oyo"]
+[ext_resource type="Script" path="res://multiplayer_system/interface/connection_menu.gd" id="1_fnvxh"]
+[ext_resource type="PackedScene" uid="uid://cdukfn2ljtjel" path="res://interface/player_info_container.tscn" id="3_gu434"]
+
+[node name="ConnectionMenu" type="Control" node_paths=PackedStringArray("player_info_container", "lobby_name_line_edit", "host_button", "join_button", "refresh_lobby_list_button", "server_list_container", "lobby_search_line_edit")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_80oyo")
+script = ExtResource("1_fnvxh")
+player_info_container = NodePath("PlayerInfoContainer")
+lobby_name_line_edit = NodePath("VBoxContainer/HostContainer/LobbyNameLineEdit")
+host_button = NodePath("VBoxContainer/HostContainer/HostButton")
+join_button = NodePath("VBoxContainer/JoinContainer/JoinButton")
+refresh_lobby_list_button = NodePath("HostContainer/RefreshButton")
+server_list_container = NodePath("ScrollContainer/ServerListContainer")
+lobby_search_line_edit = NodePath("HostContainer/LobbySearchLineEdit")
+
+[node name="PlayerInfoContainer" parent="." instance=ExtResource("3_gu434")]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 38.0
+offset_right = 253.0
+offset_bottom = 102.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.2
+anchor_right = 0.2
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HostContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LobbyNameLineEdit" type="LineEdit" parent="VBoxContainer/HostContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "Room Name"
+alignment = 1
+expand_to_text_length = true
+
+[node name="HostButton" type="Button" parent="VBoxContainer/HostContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Host
+"
+
+[node name="JoinContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/JoinContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "Room ID"
+alignment = 1
+expand_to_text_length = true
+
+[node name="JoinButton" type="Button" parent="VBoxContainer/JoinContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Join
+"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.2
+anchor_right = 0.95
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ServerListContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HostContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 691.2
+offset_top = 64.8
+offset_right = 970.2
+offset_bottom = 101.8
+
+[node name="LobbySearchLineEdit" type="LineEdit" parent="HostContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+placeholder_text = "Room Name"
+alignment = 1
+expand_to_text_length = true
+
+[node name="RefreshButton" type="Button" parent="HostContainer"]
+layout_mode = 2
+text = "Refresh"

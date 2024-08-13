@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://btf4dys7hsgil"]
+
+[ext_resource type="PackedScene" uid="uid://blcexif3mw0ff" path="res://multiplayer_system/interface/connection_menu.tscn" id="1_3umgx"]
+[ext_resource type="Script" path="res://interface/LobbyInterface.gd" id="1_e3fp8"]
+[ext_resource type="PackedScene" uid="uid://bhdmnkvsr42c8" path="res://interface/lobby_menu.tscn" id="2_wm864"]
+
+[node name="TestScene" type="Node3D"]
+
+[node name="LobbyInterface" type="CanvasLayer" parent="." node_paths=PackedStringArray("connection_menu", "lobby_menu")]
+script = ExtResource("1_e3fp8")
+connection_menu = NodePath("ConnectionMenu")
+lobby_menu = NodePath("LobbyMenu")
+
+[node name="ConnectionMenu" parent="LobbyInterface" instance=ExtResource("1_3umgx")]
+visible = false
+
+[node name="LobbyMenu" parent="LobbyInterface" instance=ExtResource("2_wm864")]
+visible = false
